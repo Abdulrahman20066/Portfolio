@@ -26,12 +26,10 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* 3D Background */}
       <div className="absolute inset-0 z-0">
         <HeroCanvas />
       </div>
 
-      {/* Radial gradient overlay */}
       <div
         className="absolute inset-0 z-10 pointer-events-none"
         style={{
@@ -39,7 +37,6 @@ export default function Hero() {
         }}
       />
 
-      {/* Content */}
       <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-12 text-center pt-24 pb-16">
         <motion.div
           variants={containerVariants}
@@ -47,7 +44,6 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-center"
         >
-          {/* Status badge */}
           <motion.div variants={itemVariants} className="mb-6">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card border border-accent-cyan/20 text-xs font-mono text-accent-cyan">
               <span className="w-2 h-2 rounded-full bg-accent-green animate-pulse flex-shrink-0" />
@@ -55,7 +51,6 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          {/* Main heading */}
           <motion.div variants={itemVariants} className="mb-3">
             <span className="block text-text-secondary font-mono text-xs sm:text-sm tracking-widest mb-2 uppercase">
               Hello, I'm
@@ -68,7 +63,6 @@ export default function Hero() {
             </h1>
           </motion.div>
 
-          {/* Title */}
           <motion.div variants={itemVariants} className="mb-5">
             <h2
               className="section-title gradient-text"
@@ -78,7 +72,6 @@ export default function Hero() {
             </h2>
           </motion.div>
 
-          {/* Tagline */}
           <motion.p
             variants={itemVariants}
             className="max-w-xl text-text-secondary text-sm sm:text-lg leading-relaxed mb-8 px-2"
@@ -86,7 +79,6 @@ export default function Hero() {
             {personalInfo.tagline}
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
             className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8 w-full max-w-sm sm:max-w-none"
@@ -109,14 +101,13 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          {/* Social links */}
           <motion.div
             variants={itemVariants}
             className="flex items-center justify-center gap-3 flex-wrap"
           >
             {[
-              { href: personalInfo.github,  icon: Github,   label: 'GitHub'   },
-              { href: personalInfo.linkedin, icon: Linkedin, label: 'LinkedIn' },
+              { href: personalInfo.github,   icon: Github,   label: 'GitHub'   },
+              { href: personalInfo.linkedin,  icon: Linkedin, label: 'LinkedIn' },
               { href: `mailto:${personalInfo.email}`, icon: Mail, label: 'Email' },
             ].map(({ href, icon: Icon, label }) => (
               
@@ -136,7 +127,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -157,7 +147,6 @@ export default function Hero() {
         </a>
       </motion.div>
 
-      {/* Decorative line */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-bg-border to-transparent z-20" />
     </section>
   );

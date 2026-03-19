@@ -16,7 +16,7 @@ and continuously leveling up my skills. I believe in writing clean, maintainable
 that scales.`,
   location:   'Bauchi, Nigeria',
   available:  true,
-  email:      'abdulmdauda2006@gmail.com.',
+  email:      'abdulmdauda2006@gmail.com',
   github:     'https://github.com/Abdulrahman20066/Abdulrahman20066',
   linkedin:   'www.linkedin.com/in/abdulrahman-muhammad-dauda-0685433b6',
   twitter:    'https://twitter.com/abdulrahman',

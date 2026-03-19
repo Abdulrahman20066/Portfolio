@@ -5,15 +5,11 @@ import { ArrowDown, Github, Linkedin, Mail, Download, ExternalLink } from 'lucid
 import dynamic from 'next/dynamic';
 import { personalInfo } from '@/lib/data';
 
-// Lazy-load Three.js canvas (no SSR)
 const HeroCanvas = dynamic(() => import('./3d/HeroCanvas'), {
   ssr:     false,
   loading: () => null,
 });
 
-// =============================================
-// TEXT ANIMATION VARIANTS
-// =============================================
 const containerVariants = {
   hidden:  {},
   visible: { transition: { staggerChildren: 0.12, delayChildren: 0.3 } },
@@ -24,21 +20,18 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
 };
 
-// =============================================
-// HERO SECTION
-// =============================================
 export default function Hero() {
   return (
     <section
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
     >
-      {/* ---- 3D Background ---- */}
+      {/* 3D Background */}
       <div className="absolute inset-0 z-0">
         <HeroCanvas />
       </div>
 
-      {/* ---- Radial gradient overlay ---- */}
+      {/* Radial gradient overlay */}
       <div
         className="absolute inset-0 z-10 pointer-events-none"
         style={{
@@ -46,16 +39,8 @@ export default function Hero() {
         }}
       />
 
-      {/* ---- Left edge glow ---- */}
-      <div
-        className="absolute left-0 top-1/2 -translate-y-1/2 w-64 h-[500px] pointer-events-none z-10"
-        style={{
-          background: 'radial-gradient(ellipse at left, rgba(0,212,255,0.08) 0%, transparent 70%)',
-        }}
-      />
-
-      {/* ---- Content ---- */}
-      <div className="relative z-20 max-w-5xl mx-auto px-6 md:px-12 text-center">
+      {/* Content */}
+      <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-12 text-center pt-24 pb-16">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -63,33 +48,31 @@ export default function Hero() {
           className="flex flex-col items-center"
         >
           {/* Status badge */}
-          <motion.div variants={itemVariants} className="mb-8">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-accent-cyan/20 text-xs font-mono text-accent-cyan">
-              <span className="w-2 h-2 rounded-full bg-accent-green animate-pulse" />
+          <motion.div variants={itemVariants} className="mb-6">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card border border-accent-cyan/20 text-xs font-mono text-accent-cyan">
+              <span className="w-2 h-2 rounded-full bg-accent-green animate-pulse flex-shrink-0" />
               {personalInfo.available ? 'Available for opportunities' : 'Currently not available'}
             </span>
           </motion.div>
 
           {/* Main heading */}
-          <motion.div variants={itemVariants} className="mb-4">
-            <span
-              className="block text-text-secondary font-mono text-sm tracking-widest mb-3 uppercase"
-            >
+          <motion.div variants={itemVariants} className="mb-3">
+            <span className="block text-text-secondary font-mono text-xs sm:text-sm tracking-widest mb-2 uppercase">
               Hello, I'm
             </span>
             <h1
               className="section-title text-text-primary leading-none"
-              style={{ fontSize: 'clamp(3.5rem, 9vw, 7rem)' }}
+              style={{ fontSize: 'clamp(2.5rem, 10vw, 7rem)' }}
             >
               {personalInfo.name}
             </h1>
           </motion.div>
 
           {/* Title */}
-          <motion.div variants={itemVariants} className="mb-6">
+          <motion.div variants={itemVariants} className="mb-5">
             <h2
               className="section-title gradient-text"
-              style={{ fontSize: 'clamp(1.5rem, 4vw, 3rem)', fontFamily: 'var(--font-syne)' }}
+              style={{ fontSize: 'clamp(1.1rem, 4vw, 3rem)', fontFamily: 'var(--font-syne)' }}
             >
               {personalInfo.title}
             </h2>
@@ -98,7 +81,7 @@ export default function Hero() {
           {/* Tagline */}
           <motion.p
             variants={itemVariants}
-            className="max-w-xl text-text-secondary text-lg leading-relaxed mb-10"
+            className="max-w-xl text-text-secondary text-sm sm:text-lg leading-relaxed mb-8 px-2"
           >
             {personalInfo.tagline}
           </motion.p>
@@ -106,21 +89,21 @@ export default function Hero() {
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-4 mb-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8 w-full max-w-sm sm:max-w-none"
           >
-            <a href="#projects" className="btn-primary">
+            <a href="#projects" className="btn-primary w-full sm:w-auto justify-center">
               <ExternalLink size={16} />
               View Projects
             </a>
-            <a
+            
               href={personalInfo.resumeUrl}
               download
-              className="btn-secondary"
+              className="btn-secondary w-full sm:w-auto justify-center"
             >
               <Download size={16} />
               Download Resume
             </a>
-            <a href="#contact" className="btn-secondary">
+            <a href="#contact" className="btn-secondary w-full sm:w-auto justify-center">
               <Mail size={16} />
               Contact Me
             </a>
@@ -129,14 +112,14 @@ export default function Hero() {
           {/* Social links */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center gap-5"
+            className="flex items-center justify-center gap-3 flex-wrap"
           >
             {[
-              { href: personalInfo.github,   icon: Github,   label: 'GitHub'   },
-              { href: personalInfo.linkedin,  icon: Linkedin, label: 'LinkedIn' },
+              { href: personalInfo.github,  icon: Github,   label: 'GitHub'   },
+              { href: personalInfo.linkedin, icon: Linkedin, label: 'LinkedIn' },
               { href: `mailto:${personalInfo.email}`, icon: Mail, label: 'Email' },
             ].map(({ href, icon: Icon, label }) => (
-              <a
+              
                 key={label}
                 href={href}
                 target="_blank"
@@ -147,22 +130,22 @@ export default function Hero() {
                 <Icon size={18} />
               </a>
             ))}
-            <span className="w-8 h-px bg-bg-border" />
+            <span className="hidden sm:block w-8 h-px bg-bg-border" />
             <span className="text-text-muted font-mono text-xs">{personalInfo.location}</span>
           </motion.div>
         </motion.div>
       </div>
 
-      {/* ---- Scroll indicator ---- */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
       >
-        <a
+        
           href="#about"
-          className="flex flex-col items-center gap-2 text-text-muted hover:text-accent-cyan transition-colors group"
+          className="flex flex-col items-center gap-2 text-text-muted hover:text-accent-cyan transition-colors"
         >
           <span className="font-mono text-xs tracking-widest uppercase">Scroll</span>
           <motion.div
@@ -174,7 +157,7 @@ export default function Hero() {
         </a>
       </motion.div>
 
-      {/* ---- Decorative line ---- */}
+      {/* Decorative line */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-bg-border to-transparent z-20" />
     </section>
   );

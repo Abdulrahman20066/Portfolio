@@ -6,17 +6,17 @@ import dynamic from 'next/dynamic';
 import { personalInfo } from '@/lib/data';
 
 const HeroCanvas = dynamic(() => import('./3d/HeroCanvas'), {
-  ssr:     false,
+  ssr: false,
   loading: () => null,
 });
 
 const containerVariants = {
-  hidden:  {},
+  hidden: {},
   visible: { transition: { staggerChildren: 0.12, delayChildren: 0.3 } },
 };
 
 const itemVariants = {
-  hidden:  { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
 };
 
@@ -37,14 +37,14 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-12 text-center pt-24 pb-16">
+      <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-12 text-center pt-20 pb-16">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="flex flex-col items-center"
         >
-          <motion.div variants={itemVariants} className="mb-6">
+          <motion.div variants={itemVariants} className="mb-5">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-card border border-accent-cyan/20 text-xs font-mono text-accent-cyan">
               <span className="w-2 h-2 rounded-full bg-accent-green animate-pulse flex-shrink-0" />
               {personalInfo.available ? 'Available for opportunities' : 'Currently not available'}
@@ -52,21 +52,21 @@ export default function Hero() {
           </motion.div>
 
           <motion.div variants={itemVariants} className="mb-3">
-            <span className="block text-text-secondary font-mono text-xs sm:text-sm tracking-widest mb-2 uppercase">
+            <span className="block text-text-secondary font-mono text-xs tracking-widest mb-2 uppercase">
               Hello, I'm
             </span>
             <h1
               className="section-title text-text-primary leading-none"
-              style={{ fontSize: 'clamp(2.5rem, 10vw, 7rem)' }}
+              style={{ fontSize: 'clamp(2rem, 8vw, 7rem)' }}
             >
               {personalInfo.name}
             </h1>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="mb-5">
+          <motion.div variants={itemVariants} className="mb-4">
             <h2
               className="section-title gradient-text"
-              style={{ fontSize: 'clamp(1.1rem, 4vw, 3rem)', fontFamily: 'var(--font-syne)' }}
+              style={{ fontSize: 'clamp(1rem, 3.5vw, 3rem)', fontFamily: 'var(--font-syne)' }}
             >
               {personalInfo.title}
             </h2>
@@ -74,29 +74,29 @@ export default function Hero() {
 
           <motion.p
             variants={itemVariants}
-            className="max-w-xl text-text-secondary text-sm sm:text-lg leading-relaxed mb-8 px-2"
+            className="max-w-xl text-text-secondary text-sm sm:text-base leading-relaxed mb-7 px-2"
           >
             {personalInfo.tagline}
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8 w-full max-w-sm sm:max-w-none"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mb-7 w-full max-w-xs sm:max-w-none"
           >
-            <a href="#projects" className="btn-primary w-full sm:w-auto justify-center">
-              <ExternalLink size={16} />
+            <a href="#projects" className="btn-primary justify-center text-sm px-5 py-2.5">
+              <ExternalLink size={15} />
               View Projects
             </a>
             
               href={personalInfo.resumeUrl}
               download
-              className="btn-secondary w-full sm:w-auto justify-center"
+              className="btn-secondary justify-center text-sm px-5 py-2.5"
             >
-              <Download size={16} />
+              <Download size={15} />
               Download Resume
             </a>
-            <a href="#contact" className="btn-secondary w-full sm:w-auto justify-center">
-              <Mail size={16} />
+            <a href="#contact" className="btn-secondary justify-center text-sm px-5 py-2.5">
+              <Mail size={15} />
               Contact Me
             </a>
           </motion.div>
@@ -106,8 +106,8 @@ export default function Hero() {
             className="flex items-center justify-center gap-3 flex-wrap"
           >
             {[
-              { href: personalInfo.github,   icon: Github,   label: 'GitHub'   },
-              { href: personalInfo.linkedin,  icon: Linkedin, label: 'LinkedIn' },
+              { href: personalInfo.github, icon: Github, label: 'GitHub' },
+              { href: personalInfo.linkedin, icon: Linkedin, label: 'LinkedIn' },
               { href: `mailto:${personalInfo.email}`, icon: Mail, label: 'Email' },
             ].map(({ href, icon: Icon, label }) => (
               

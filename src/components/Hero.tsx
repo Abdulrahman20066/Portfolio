@@ -101,22 +101,15 @@ export default function Hero() {
             variants={itemVariants}
             className="flex items-center justify-center gap-3 flex-wrap"
           >
-            {[
-              { href: personalInfo.github, icon: Github, label: 'GitHub' },
-              { href: personalInfo.linkedin, icon: Linkedin, label: 'LinkedIn' },
-              { href: `mailto:${personalInfo.email}`, icon: Mail, label: 'Email' },
-            ].map(({ href, icon: Icon, label }) => (
-              
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300"
-              >
-                <Icon size={18} />
-              </a>
-            ))}
+            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300">
+              <Github size={18} />
+            </a>
+            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300">
+              <Linkedin size={18} />
+            </a>
+            <a href={`mailto:${personalInfo.email}`} target="_blank" rel="noopener noreferrer" aria-label="Email" className="w-10 h-10 rounded-lg glass-card flex items-center justify-center text-text-muted hover:text-accent-cyan hover:border-accent-cyan/30 transition-all duration-300">
+              <Mail size={18} />
+            </a>
             <span className="hidden sm:block w-8 h-px bg-bg-border" />
             <span className="text-text-muted font-mono text-xs">{personalInfo.location}</span>
           </motion.div>
@@ -129,10 +122,7 @@ export default function Hero() {
         transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
       >
-        
-          href="#about"
-          className="flex flex-col items-center gap-2 text-text-muted hover:text-accent-cyan transition-colors"
-        >
+        <a href="#about" className="flex flex-col items-center gap-2 text-text-muted hover:text-accent-cyan transition-colors">
           <span className="font-mono text-xs tracking-widest uppercase">Scroll</span>
           <motion.div
             animate={{ y: [0, 6, 0] }}

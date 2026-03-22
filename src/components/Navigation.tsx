@@ -46,16 +46,10 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
 
-          {/* Logo */}
-          <a
-            href="#hero"
-            className="font-display font-800 text-xl tracking-tight text-text-primary hover:text-accent-cyan transition-colors duration-300"
-            style={{ fontFamily: 'var(--font-syne)' }}
-          >
-            <span className="text-accent-cyan">&lt;</span>
-            {personalInfo.name.charAt(0)}
-            <span className="text-accent-cyan">/&gt;</span>
-          </a>
+         {/* Logo */}
+<a href="#hero">
+  <img src="/logo.svg" alt="AMD Logo" width={36} height={36} className="rounded-lg hover:opacity-80 transition-opacity duration-300" />
+</a>
 
           {/* Desktop Links */}
           <ul className="hidden md:flex items-center gap-1">

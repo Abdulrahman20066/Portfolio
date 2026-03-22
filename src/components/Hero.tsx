@@ -53,7 +53,7 @@ export default function Hero() {
 
           <motion.div variants={itemVariants} className="mb-3">
             <span className="block text-text-secondary font-mono text-xs tracking-widest mb-2 uppercase">
-              Hello, I'm
+              Hello, I am
             </span>
             <h1
               className="section-title text-text-primary leading-none"
@@ -87,11 +87,7 @@ export default function Hero() {
               <ExternalLink size={15} />
               View Projects
             </a>
-            
-              href={personalInfo.resumeUrl}
-              download
-              className="btn-secondary justify-center text-sm px-5 py-2.5"
-            >
+            <a href={personalInfo.resumeUrl} download className="btn-secondary justify-center text-sm px-5 py-2.5">
               <Download size={15} />
               Download Resume
             </a>

@@ -41,7 +41,7 @@ export default function About() {
     { value: '5+',   label: 'Years Experience',   icon: Calendar },
     { value: '30+',  label: 'Projects Completed',  icon: Code2    },
     { value: '15+',  label: 'Happy Clients',        icon: Coffee   },
-    { value: 'Lagos',label: 'Based in Nigeria',     icon: MapPin   },
+    { value: 'Bauchi',label: 'Based in Nigeria',     icon: MapPin   },
   ];
 
   return (
